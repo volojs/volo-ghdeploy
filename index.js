@@ -9,7 +9,7 @@
     "keywords": [
         "volo"
     ],
-    "version": "0.0.4",
+    "version": "0.0.5",
     "homepage": "http://github.com/volojs/volo-ghdeploy",
     "author": "James Burke <jrburke@gmail.com> (http://github.com/jrburke)",
     "licenses": [
@@ -176,8 +176,8 @@ module.exports = function (buildDir, pagesDir) {
                                     //This step mandated by:
                                     //http://help.github.com/pages/#project_pages_manually
                                     ['git', 'symbolic-ref', 'HEAD', 'refs/heads/gh-pages'],
-                                    [v,     'rm', '.git/index'],
-                                    ['git', 'clean', '-fdx'],
+                                    [v,     'rm', path.join(pagesDir, '.git', 'index')],
+                                    ['git', 'clean', '-fdx', pagesDir],
 
                                     [v,     'write', 'index.html', 'Setting up pages...'],
                                     ['git', 'add', 'index.html'],
