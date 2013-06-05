@@ -9,7 +9,7 @@
     "keywords": [
         "volo"
     ],
-    "version": "0.0.5",
+    "version": "0.0.6",
     "homepage": "http://github.com/volojs/volo-ghdeploy",
     "author": "James Burke <jrburke@gmail.com> (http://github.com/jrburke)",
     "licenses": [
@@ -63,7 +63,8 @@ module.exports = function (buildDir, pagesDir) {
                 repoName,
                 hasGhPages;
 
-            q.call(function () {
+            //Work with q 0.9 or 0.8
+            (q.fcall || q.call)(function () {
                 //First check if there is already a repo
                 if (!v.exists(buildDir)) {
                     throw new Error(buildDir + ' does not exist. If that ' +
